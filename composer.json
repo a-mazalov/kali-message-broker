@@ -1,7 +1,7 @@
 {
     "name": "a-mazalov/kali-message-broker",
     "description": "Messaging between microservices",
-    "license": "Commercial",
+    "license": "MIT",
     "authors": [
         {
             "name": "Александр Мазалов",
