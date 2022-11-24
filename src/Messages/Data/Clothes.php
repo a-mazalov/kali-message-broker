@@ -8,13 +8,15 @@ class Clothes extends Base
 
 	public function __construct(
         public string $username,
-        public array $clothes
+        public array $clothes,
+        public DateTime $dateChange
     ) {}
 
     public function toResource(): array {
         return [
             "username" => $this->username,
-            "clothes" => $this->clothes
+            "clothes" => $this->clothes,
+            "dateChange" => $this->dateChange->toDateString()
         ];
     }
 }
