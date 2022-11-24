@@ -1,6 +1,7 @@
 <?php
 
 namespace Kali\MessageBroker\Messages\Data;
+use DateTime;
 
 class Clothes extends Base
 {
