@@ -10,6 +10,16 @@ abstract class Base implements MessageDataInterface
     protected string $template;
     protected string $created_at;
 
+    public static function prepareParamsFrom(string|array $params) {
+        if(is_string($params)) {
+            return (object) json_decode($params);
+        }
+
+        if(is_array($params)) {
+            return (object) $params;
+        }
+    }
+
     /**
      * Summary of getTemplate
      * @return string

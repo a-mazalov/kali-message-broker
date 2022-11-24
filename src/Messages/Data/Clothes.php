@@ -7,7 +7,7 @@ use Illuminate\Support\Carbon;
 class Clothes extends Base
 {
     protected string $template = "clothes";
-    
+
 	public function __construct(
         public string $username,
         public array $clothes,
@@ -22,8 +22,8 @@ class Clothes extends Base
         ];
     }
 
-    public static function from(string $data) {
-        $params = (object) json_decode($data);
+    public static function from(string|array $data) {
+        $params = self::prepareParamsFrom($data);
 
         return new self(
             username: $params->username,
