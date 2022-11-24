@@ -47,13 +47,19 @@ abstract class Base implements MessageDataInterface
         return $this;
     }
 
+    public function toJson(): string {
+        return json_encode($this->toResource());
+    }
+
     /**
      * Возвращает свойства объекта и включает в себя следующие атрибуты по умолчанию @var string template @var string date
+     * Используется для создания уведомлений, отправки в database, fcm и другие каналы.
+     * 
      * @param bool flat. Параметр преобразует в структуру вида key => value, без вложенностей.
      * @api \Kreait\Firebase\Messaging\MessageData
      * @return array
      */
-    public function toMessageData(bool $flat = false): array
+    public function toNotificationData(bool $flat = false): array
     {
         $attributes = $this->toResource();
 

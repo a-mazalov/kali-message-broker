@@ -6,7 +6,6 @@ use Anik\Laravel\Amqp\Facades\Amqp;
 use Kali\MessageBroker\Messages\Data\Clothes;
 use Kali\MessageBroker\Messages\Message;
 use Orchestra\Testbench\TestCase;
-
 class ConsumeMessageTest extends TestCase
 {
 
@@ -19,18 +18,9 @@ class ConsumeMessageTest extends TestCase
         $this->assertArrayHasKey("data", $messageArray);
     }
 
-    public function test_make_message() {
-        $payload = new Clothes(username: "djoni", clothes: [["name" => "boots"]]);
-
-        $message = new Message(job: "MyJobTest", data: $payload->toMessageData(true));
-        
-        $this->assertTrue(true);
-    }
-
-    public function test_send_message() {
-        $payload = new Clothes(username: "djoni", clothes: [["name" => "boots"]]);
-
-        $message = new Message(job: "MyJobTest", data: $payload->toMessageData(true));
+    public function test_send_message() 
+    {
+        $message = new Message(job: "MyJobTest", data: [ "username" => "Djoni" ]);
 
         Amqp::fake();
 

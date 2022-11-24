@@ -12,11 +12,18 @@ interface MessageDataInterface
 	public function toResource(): array;
 
 	/**
+	 * На основе метода toResource возвращает json строку
+	 * 
+	 * @return string
+	 */
+	public function toJson(): string;
+
+	/**
 	 * Метод преобразует в структуру вида key => value, без вложенностей.
 	 * 	Преобразование value массивов в json строку
 	 * 
      * @api \Kreait\Firebase\Messaging\MessageData
      * @return array
      */
-	public function toMessageData(): array;
+	public function toNotificationData(): array;
 }
