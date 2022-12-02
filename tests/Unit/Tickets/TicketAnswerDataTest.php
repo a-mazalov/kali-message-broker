@@ -18,7 +18,7 @@ class TicketAnswerDataTest extends TestCase
     {
         parent::setUp();
 
-        $this->testingData = new TicketAnswer(ticketId: "300");
+        $this->testingData = new TicketAnswer(username: "111111", ticketId: "300");
     }
 
     public function test_make_message_with_salary() {
@@ -28,10 +28,11 @@ class TicketAnswerDataTest extends TestCase
     }
 
     public function test_create_test_data_from_json() {
-        $testingData = TicketAnswer::from('{ "ticketId": "300" }');
+        $testingData = TicketAnswer::from('{ "username": "111111", "ticketId": "300" }');
 
         $testingResource = $testingData->toResource();
 
+        $this->assertArrayHasKey("username", $testingResource);
         $this->assertArrayHasKey("ticketId", $testingResource);
     }
     
