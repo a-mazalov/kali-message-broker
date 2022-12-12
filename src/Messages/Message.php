@@ -2,7 +2,6 @@
 
 namespace Kali\MessageBroker\Messages;
 
-use Kali\MessageBroker\Messages\Data\Base;
 use Kali\MessageBroker\DataObjects\DataTransferObject;
 
 class Message extends DataTransferObject

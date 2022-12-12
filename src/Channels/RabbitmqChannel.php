@@ -4,8 +4,8 @@ namespace Kali\MessageBroker\Channels;
 
 use Anik\Laravel\Amqp\Facades\Amqp;
 use Illuminate\Notifications\Notification;
-use Exception;
 use Kali\MessageBroker\Messages\Message;
+use Exception;
 
 class RabbitmqChannel
 {

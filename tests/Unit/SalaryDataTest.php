@@ -34,11 +34,11 @@ class SalaryDataTest extends TestCase
 
         $salaryResource = $salary->toResource();
 
-        $dateFormatTest = Carbon::createFromFormat("m-Y", $salary->salaryMonthYear);
+        $dateFormatTest = Carbon::createFromFormat("M Y", $salary->salaryMonthYear);
 
         $this->assertArrayHasKey("salaryDate", $salaryResource);
         $this->assertArrayHasKey("salaryMonthYear", $salaryResource);
-        $this->assertTrue($dateFormatTest->format("m-Y") === $salary->salaryMonthYear);
+        $this->assertTrue($dateFormatTest->isoFormat("MMMM Y") === $salary->salaryMonthYear);
     }
     
     public function test_convert_salary_to_notification_data() {

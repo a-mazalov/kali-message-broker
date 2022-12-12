@@ -19,9 +19,7 @@ class Salary extends Base
     public function __construct(public string $salaryDate)
     {
         $this->salaryDateCarbon = CarbonImmutable::createFromFormat("Y-m-d", $this->salaryDate);
-
-        // TODO: Пофиксить русский язык и изменить на ->format("M Y");
-        $this->salaryMonthYear = $this->salaryDateCarbon->format("m-Y");
+        $this->salaryMonthYear = $this->salaryDateCarbon->isoFormat("MMMM Y");
     }
 
     /**
