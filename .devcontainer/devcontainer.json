@@ -9,7 +9,6 @@
 		"dockerfile": "../Dockerfile"
 	},
 
-	"workspaceFolder": "/opt/apps/laravel",
 
 	// Configure tool-specific properties.
 	"customizations": {
