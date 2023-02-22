@@ -1,6 +1,6 @@
 <?php
 
-namespace Kali\MessageBroker\Messages\Data;
+namespace Kali\MessageBroker\Messages\Data\Roles;
 
 use Kali\MessageBroker\Messages\Data\Base;
 
@@ -10,9 +10,9 @@ use Kali\MessageBroker\Messages\Data\Base;
  * @property array $users - список username которым необходимо выдать роль
  * @property string $role - роль
  */
-class Role extends Base
+class GrantRole extends Base
 {
-    protected string $template = "role";
+    protected string $template = "role-grant";
 
     public function __construct(
         public array $users,
