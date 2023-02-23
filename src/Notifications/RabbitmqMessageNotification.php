@@ -3,11 +3,12 @@
 namespace Kali\MessageBroker\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Kali\MessageBroker\Channels\RabbitmqChannel;
 use Kali\MessageBroker\Messages\Message;
 
-class RabbitmqMessageNotification extends Notification
+class RabbitmqMessageNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
