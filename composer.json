@@ -26,6 +26,13 @@
             "Kali\\MessageBroker\\Tests\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kali\\MessageBroker\\Providers\\MsgServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "post-autoload-dump": [
