@@ -15,7 +15,7 @@ class MessageJobRepository
 	public function __construct(?array $messages = [])
 	{
 		// Получить доступные сообщения и задания из заданого массива или конфигурации
-		$messageArray = $messages ?? config("messages.incoming", []);
+		$messageArray = $messages ?: config("messages.incoming", []);
 		$this->messages = $this->getAvailableMessages($messageArray);
 	}
 
