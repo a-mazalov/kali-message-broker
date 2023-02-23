@@ -3,13 +3,13 @@
 namespace Kali\Unit\Tests\Roles;
 
 use Anik\Laravel\Amqp\Facades\Amqp;
-use Kali\MessageBroker\Messages\Data\Roles\GrantRole;
+use Kali\MessageBroker\Messages\Data\Roles\RevokeRole;
 use Kali\MessageBroker\Messages\Message;
 use Orchestra\Testbench\TestCase;
 
-class GrantRoleDataTest extends TestCase
+class RevokeRoleDataTest extends TestCase
 {
-    public GrantRole $testingData;
+    public RevokeRole $testingData;
 
     /**
      * Setup the test environment.
@@ -18,17 +18,17 @@ class GrantRoleDataTest extends TestCase
     {
         parent::setUp();
 
-        $this->testingData = new GrantRole(users: ["413664", "412661"], role: "HR_GOD", client: "hr_internal");
+        $this->testingData = new RevokeRole(users: ["413664", "412661"], role: "HR_GOD", client: "hr_internal");
     }
 
     public function test_make_message_with_role() {
-        $message = new Message(job: "GrantRoleJob", data: $this->testingData->toResource());
+        $message = new Message(job: "RevokeRoleJob", data: $this->testingData->toResource());
 
         $this->assertNotNull($message->getData());
     }
 
     public function test_create_role_data_from_json() {
-        $testingData = GrantRole::from('{ "users": ["413664", "412661"], "role": "HR_GOD", "client": "hr_internal"}');
+        $testingData = RevokeRole::from('{ "users": ["413664", "412661"], "role": "HR_GOD", "client": "hr_internal"}');
 
         $testingResource = $testingData->toResource();
 
@@ -45,7 +45,7 @@ class GrantRoleDataTest extends TestCase
     }
 
     public function test_send_message_testing() {
-        $message = new Message(job: "GrantRoleJob", data: $this->testingData->toResource());
+        $message = new Message(job: "RevokeRoleJob", data: $this->testingData->toResource());
 
         Amqp::fake();
 
