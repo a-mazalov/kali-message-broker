@@ -2,6 +2,7 @@
 
 namespace Kali\MessageBroker\Channels;
 
+use Anik\Amqp\Exchanges\Exchange;
 use Anik\Laravel\Amqp\Facades\Amqp;
 use Illuminate\Notifications\Notification;
 use Kali\MessageBroker\Messages\Message;
@@ -34,7 +35,12 @@ class RabbitmqChannel
 
         $message = $this->buildPayload($routing_key, $notification);
 
-        return Amqp::publish($message->toJson(), $routing_key);
+        $exchange = new Exchange(
+            config("amqp.connections.rabbitmq.exchange.name"), 
+            config("amqp.connections.rabbitmq.exchange.type")
+        );
+
+        return Amqp::publish($message->toJson(), $routing_key, $exchange);
     }
 
     /**
