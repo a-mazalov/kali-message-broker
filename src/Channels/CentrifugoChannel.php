@@ -27,7 +27,7 @@ class CentrifugoChannel
 
         $data = $this->buildPayload($channel, $notification);
 
-        return $centrifugo->publish(config('centrifugo.channel') . ':' . $channel, $data);
+        return $centrifugo->publish(config('broadcasting.connections.centrifugo.channel_prefix') . ':' . $channel, $data);
     }
 
     /**
