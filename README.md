@@ -117,3 +117,42 @@ RABBITMQ_QUEUE=access_queue
 7. Запустить обработчки ```php artisan rabbitmq:consume rabbitmq_consumer```
 
 > rabbitmq_consumer - имя подключение в ```config/queue.php```
+
+## Публикация сообщений в Centrifugo
+
+1. Необходимо открыть config/broadcasting.php и добавить новое соединение следующим образом:
+
+```php 
+  'centrifugo' => [
+            'driver' => 'centrifugo',
+            'token_hmac_secret_key'  => env('CENTRIFUGO_TOKEN_HMAC_SECRET_KEY',''),
+            'api_key'  => env('CENTRIFUGO_API_KEY',''),
+            'url'     => env('CENTRIFUGO_URL', 'http://localhost:8000'), 
+            'verify'  => env('CENTRIFUGO_VERIFY', false), 
+            'ssl_key' => env('CENTRIFUGO_SSL_KEY', null),
+            'channel_prefix' => env('CENTRIFUGO_CHANNEL_PREFIX', 'dev'),
+        ],
+```
+
+.env
+```properties
+CENTRIFUGO_SECRET = "1234567890"
+CENTRIFUGO_APIKEY = "SecretKey"
+CENTRIFUGO_URL = "http://localhost"
+CENTRIFUGO_CHANNEL = "dev"
+```
+
+2. Отправка через Notification
+
+Воспользоваться существующим классом ```CentrifugoMessageNotification```
+
+```php
+    use Kali\MessageBroker\Notifications\CentrifugoMessageNotification;
+
+    $testData = ['email' => "djoni@google.com", 'message' => "Hello World!"];
+    $channel = "new-message" 
+
+    Notification::route("centrifugo", $channel)->notify(
+        new CentrifugoMessageNotification($testData);
+    );
+```
