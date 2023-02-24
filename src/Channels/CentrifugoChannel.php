@@ -22,7 +22,7 @@ class CentrifugoChannel
         }
 
         if (!is_string($channel)) {
-            throw new Exception("Non string routing key not allowed");
+            throw new Exception("Non string channel name not allowed");
         }
 
         $data = $this->buildPayload($channel, $notification);
