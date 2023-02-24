@@ -19,7 +19,7 @@ composer test
 
 Где ```AMQP_EXCHANGE_NAME``` имя общего обменника
 
-```
+```properties
 AMQP_HOST=rabbitmq
 AMQP_PORT=5672
 AMQP_USER=root
