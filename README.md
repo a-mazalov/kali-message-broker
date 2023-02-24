@@ -110,7 +110,7 @@ RABBITMQ_QUEUE=access_queue
     ],
 ```
 
-5. Выполнить php artisan vendor:publish и выбрать ```Kali\MessageBroker\Providers\MsgServiceProvider``
+5. Выполнить ```php artisan vendor:publish``` и выбрать ```Kali\MessageBroker\Providers\MsgServiceProvider```
 
 6. Заполнить ```config/message.php``` для соотвествия имени входящего сообщения и выполнения требуемой задачи
 
