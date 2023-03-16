@@ -1,6 +1,6 @@
 <?php
 
-namespace Apps\ConsumerQueue\Worker;
+namespace Kali\MessageBroker\Worker;
 
 use Illuminate\Support\Facades\Log;
 use Kali\MessageBroker\Messages\Message;

@@ -91,7 +91,7 @@ RABBITMQ_QUEUE=access_queue
                     'passphrase' => env('RABBITMQ_SSL_PASSPHRASE', null),
                 ],
                 'queue' => [
-                    'job' => \Apps\ConsumerQueue\Worker\ConsumeRabbitMQ::class,
+                    'job' => \Kali\MessageBroker\Worker\ConsumeRabbitMQ::class,
                 ],
             ],
 
@@ -106,7 +106,7 @@ RABBITMQ_QUEUE=access_queue
 
 ```php
     'queue' => [
-        'job' => \Apps\ConsumerQueue\Worker\ConsumeRabbitMQ::class,
+        'job' => \Kali\MessageBroker\Worker\ConsumeRabbitMQ::class,
     ],
 ```
 
