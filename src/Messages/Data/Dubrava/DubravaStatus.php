@@ -9,7 +9,7 @@ class DubravaStatus extends Base
     protected string $template = "dubrava-status";
 
 	public function __construct(
-        public string $id,
+        public int $id,
         public string $title,
         public string $body,
         public string $username,
