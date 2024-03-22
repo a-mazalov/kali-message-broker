@@ -1,0 +1,40 @@
+<?php
+
+namespace Kali\MessageBroker\Messages\Data\Dubrava;
+
+use Kali\MessageBroker\Messages\Data\Base;
+
+class DubravaStatus extends Base
+{
+    protected string $template = "dubrava-status";
+
+	public function __construct(
+        public string $id,
+        public string $title,
+        public string $body,
+        public string $username,
+        public string $status,
+    ) {}
+
+    public function toResource(): array {
+        return [
+            "id" => $this->id,
+            "title" => $this->title,
+            "body" => $this->body,
+            "username" => $this->id,
+            "status" => $this->status,
+        ];
+    }
+
+    public static function from(string|array $data) {
+        $params = self::prepareParamsFrom($data);
+
+        return new self(
+            id: $params->id,
+            title: $params->title,
+            body: $params->body,
+            username: $params->username,
+            status: $params->status,
+        );
+    }
+}
