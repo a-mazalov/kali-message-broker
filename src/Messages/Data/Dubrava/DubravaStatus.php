@@ -21,7 +21,7 @@ class DubravaStatus extends Base
             "id" => $this->id,
             "title" => $this->title,
             "body" => $this->body,
-            "username" => $this->id,
+            "username" => $this->username,
             "status" => $this->status,
         ];
     }

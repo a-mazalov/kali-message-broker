@@ -20,7 +20,7 @@ class DubravaNumber extends Base
             "id" => $this->id,
             "title" => $this->title,
             "body" => $this->body,
-            "username" => $this->id,
+            "username" => $this->username,
         ];
     }
 
