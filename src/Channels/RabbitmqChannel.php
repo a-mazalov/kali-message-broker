@@ -33,7 +33,7 @@ class RabbitmqChannel
             throw new Exception("Non string routing key not allowed");
         }
 
-        $message = $this->buildPayload($routing_key, $notification);
+        $message = $this->buildPayload($notifiable, $notification);
 
         $exchange = new Exchange(
             config("amqp.connections.rabbitmq.exchange.name"), 
