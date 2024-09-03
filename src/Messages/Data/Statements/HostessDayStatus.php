@@ -5,7 +5,7 @@ use Kali\MessageBroker\Messages\Data\Base;
 
 class HostessDayStatus extends Base
 {
-    protected string $template;
+    protected string $template  = "hostessday-status";
 
     public function __construct(
         public int $id,
