@@ -28,9 +28,9 @@ class BaseStatus extends Base
 
     public static function from(string|array $data)
     {
-        $params = self::prepareParamsFrom($data);
+        $params = static::prepareParamsFrom($data);
 
-        return new self(
+        return new static(
             id: $params->id,
             title: $params->title,
             body: $params->body,

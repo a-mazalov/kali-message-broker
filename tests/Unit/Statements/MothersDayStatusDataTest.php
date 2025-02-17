@@ -23,6 +23,12 @@ class MothersDayStatusDataTest extends TestCase
         $this->testingData = new MothersDayStatus(id: 1, title: "Mothers Day Test Update Status", body: "body test", username: "111111", status: "new");
     }
 
+    public function test_instance() {
+        $data = MothersDayStatus::from('{ "id": "1", "title": "Mothers Day Test json", "body": "body test", "username": "111111", "status": "new" }');
+
+        $this->assertInstanceOf(MothersDayStatus::class, $data);
+    }
+
     public function test_make_message_with_kg_status()
     {
         $message = new Message(job: "MothersDayUpdateStatus", data: $this->testingData->toResource());
