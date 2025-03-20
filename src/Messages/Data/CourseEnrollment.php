@@ -35,7 +35,7 @@ class CourseEnrollment extends Base
             id: $params->id,
             username: $params->username,
             courseName: $params->courseName,
-            startDate: $params->endDate ? Carbon::parse($params->startDate) : null,
+            startDate: $params->startDate ? Carbon::parse($params->startDate) : null,
             endDate: $params->endDate ? Carbon::parse($params->endDate) : null
         );
     }
