@@ -12,9 +12,12 @@ class CourseEnrollment extends Base
         public string $id,
         public string $username,
         public string $courseName,
+        public string|null $curatorName,
+        public string|null $curatorPhone,
         public DateTime|null $startDate,
         public DateTime|null $endDate
-    ) {}
+    ) {
+    }
 
     public function toResource(): array
     {
@@ -22,6 +25,8 @@ class CourseEnrollment extends Base
             "id" => $this->id,
             "username" => $this->username,
             "courseName" => $this->courseName,
+            "curatorName" => $this->curatorName,
+            "curatorPhone" => $this->curatorPhone,
             "startDate" => $this->startDate?->format('d.m.Y'),
             "endDate" => $this->endDate?->format('d.m.Y')
         ];
@@ -35,6 +40,8 @@ class CourseEnrollment extends Base
             id: $params->id,
             username: $params->username,
             courseName: $params->courseName,
+            curatorName: $params->curatorName,
+            curatorPhone: $params->curatorPhone,
             startDate: $params->startDate ? Carbon::parse($params->startDate) : null,
             endDate: $params->endDate ? Carbon::parse($params->endDate) : null
         );
