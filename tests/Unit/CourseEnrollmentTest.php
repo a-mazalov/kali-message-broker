@@ -21,12 +21,12 @@ class CourseEnrollmentTest extends TestCase
 
         $this->freezeTime();
 
-        $this->testingData = new CourseEnrollment(id: 1, username: 123321, courseName: 'Course name test', startDate: now()->startOfDay(), endDate: null);
+        $this->testingData = new CourseEnrollment(id: 1, username: 123321, courseName: 'Course name test', curatorName: 'test', curatorPhone: '+375291111111', startDate: now()->startOfDay(), endDate: null);
     }
 
     public function test_instance()
     {
-        $data = CourseEnrollment::from('{ "id": "1", "username": "123321", "courseName": "Course name test", "startDate": "' . now()->startOfDay()->toDateTimeString() . '", "endDate": null }');
+        $data = CourseEnrollment::from('{ "id": "1", "username": "123321", "courseName": "Course name test", "curatorName": "test", "curatorPhone": "+375291111111", "startDate": "' . now()->startOfDay()->toDateTimeString() . '", "endDate": null }');
 
         $this->assertInstanceOf(CourseEnrollment::class, $data);
     }
@@ -40,7 +40,7 @@ class CourseEnrollmentTest extends TestCase
 
     public function test_create_test_data_from_json()
     {
-        $testingData = CourseEnrollment::from('{ "id": "1", "username": "123321", "courseName": "Course name test", "startDate": "' . now()->startOfDay()->toDateTimeString() . '", "endDate": null }');
+        $testingData = CourseEnrollment::from('{ "id": "1", "username": "123321", "courseName": "Course name test", "curatorName": "test", "curatorPhone": "+375291111111", "startDate": "' . now()->startOfDay()->toDateTimeString() . '", "endDate": null }');
 
         $testingResource = $testingData->toResource();
 
@@ -67,6 +67,8 @@ class CourseEnrollmentTest extends TestCase
             "id" => 1,
             "username" => "123321",
             "courseName" => "Course name test",
+            "curatorName" => "test",
+            "curatorPhone" => "+375291111111",
             "startDate" => now()->startOfDay()->format('d.m.Y'),
             "endDate" => null,
             "template" => "course-enrollment",
