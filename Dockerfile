@@ -6,7 +6,7 @@
 #
 ###########################################
 
-FROM mazalov/php-8.2-cli:v1.0.2 as app
+FROM mazalov/php-8.3-cli:v1.0.1 as app
 
 # Install git
 RUN apt-get update && apt-get install -y git \
