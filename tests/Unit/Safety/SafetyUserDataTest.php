@@ -7,7 +7,7 @@ use Kali\MessageBroker\Messages\Data\Safety\SafetyUserReminder;
 use Kali\MessageBroker\Messages\Message;
 use Orchestra\Testbench\TestCase;
 
-class SafetyUserReminderDataTest extends TestCase
+class SafetyUserDataTest extends TestCase
 {
     public SafetyUserReminder $testingData;
 

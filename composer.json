@@ -10,11 +10,11 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "anik/laravel-amqp": "^1.3"
+        "anik/laravel-amqp": "^2.1"
     },
     "require-dev": {
-        "orchestra/testbench": "^7.13",
-        "phpunit/phpunit": "^9.5"
+        "orchestra/testbench": "^10.3.0",
+        "phpunit/phpunit": "^12.1.5"
     },
     "autoload": {
         "psr-4": {

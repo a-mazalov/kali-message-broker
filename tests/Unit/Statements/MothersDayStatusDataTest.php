@@ -67,7 +67,7 @@ class MothersDayStatusDataTest extends TestCase
             "body" => "body test",
             "username" => "111111",
             "status" => "new",
-            "template" => "mothers-day-status",
+            "template" => "mothersday-status",
             "created_at" => now()->toDateTimeLocalString()
         ], $testingNotification);
     }
