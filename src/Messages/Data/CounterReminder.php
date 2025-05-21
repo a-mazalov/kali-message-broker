@@ -21,7 +21,7 @@ class CounterReminder extends Base
     {
         return [
             "username" => $this->username,
-            "date" => $this->date->toDateString(),
+            "date" => $this->date->format('d.m.Y'),
             "norm" => $this->norm,
             "address" => $this->address
         ];

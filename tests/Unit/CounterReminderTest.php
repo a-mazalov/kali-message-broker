@@ -63,7 +63,7 @@ class CounterReminderTest extends TestCase
 
         $this->assertEquals([
             "username" => "123321",
-            "date" => now()->toDateTimeLocalString(),
+            "date" => now()->startOfDay()->format('d.m.Y'),
             "norm" => 2,
             "address" => "ул. Пушкина 12 д. 33",
             "template" => "counter-reminder",
