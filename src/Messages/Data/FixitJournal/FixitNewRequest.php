@@ -11,7 +11,7 @@ use Kali\MessageBroker\Messages\Data\Base;
  */
 class FixitNewRequest extends Base
 {
-  protected string $template = "fixit-notify";
+  protected string $template = "fixit-new-request";
 
   public function __construct(
     public string $username,
