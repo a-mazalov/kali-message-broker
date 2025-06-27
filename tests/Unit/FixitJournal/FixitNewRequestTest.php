@@ -19,7 +19,7 @@ class FixitNewRequestTest extends TestCase
   {
     parent::setUp();
 
-    $this->testingData = new FixitNewRequest(username: "111111", requestId: "300");
+    $this->testingData = new FixitNewRequest(username: "111111", requestId: "300", created_at: "2025-06-27 11:45:21");
   }
 
   public function test_make_message_with_salary()
@@ -31,12 +31,13 @@ class FixitNewRequestTest extends TestCase
 
   public function test_create_test_data_from_json()
   {
-    $testingData = FixitNewRequest::from('{ "username": "111111", "requestId": "300" }');
+    $testingData = FixitNewRequest::from('{ "username": "111111", "requestId": "300", "created_at":"2025-06-27 11:45:21" }');
 
     $testingResource = $testingData->toResource();
 
     $this->assertArrayHasKey("username", $testingResource);
     $this->assertArrayHasKey("requestId", $testingResource);
+    $this->assertArrayHasKey("created_at", $testingResource);
   }
 
   public function test_convert_test_data_to_notification_data()
