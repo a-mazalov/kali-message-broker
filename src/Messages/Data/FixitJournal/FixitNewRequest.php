@@ -13,10 +13,10 @@ class FixitNewRequest extends Base
 {
   protected string $template = "fixit-new-request";
 
+
   public function __construct(
     public string $username,
-    public string $requestId,
-    public string $created_at
+    public string $requestId
   ) {
   }
 
@@ -25,7 +25,6 @@ class FixitNewRequest extends Base
     return [
       "username" => $this->username,
       "requestId" => $this->requestId,
-      "created_at" => $this->created_at,
     ];
   }
 
@@ -36,7 +35,6 @@ class FixitNewRequest extends Base
     return new self(
       username: $params->username,
       requestId: $params->requestId,
-      created_at: $params->created_at,
     );
   }
 }
