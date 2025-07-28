@@ -27,6 +27,16 @@ class RabbitmqMessageNotification extends Notification implements ShouldQueue
     }
 
     /**
+     * Determine the time at which the job should timeout.
+     * 
+     * @return \DateTime
+     */
+    public function retryUntil(): \DateTime
+	{
+		return now()->addMinutes(30);
+	}
+
+    /**
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
